@@ -19,6 +19,7 @@
 #include <_ansi.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <malloc.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/unistd.h>
@@ -50,7 +51,11 @@ __smakebuf_r (struct _reent *ptr,
       return;
     }
   flags = __swhatbuf_r (ptr, fp, &size, &couldbetty);
+#ifdef MALLOC_ALIGNMENT_THRESHOLD
+  if ((p = _memalign_r (ptr, MALLOC_ALIGNMENT_THRESHOLD, size)) == NULL)
+#else
   if ((p = _malloc_r (ptr, size)) == NULL)
+#endif
     {
       if (!(fp->_flags & __SSTR))
 	{
