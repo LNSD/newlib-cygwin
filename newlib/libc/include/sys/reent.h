@@ -423,6 +423,8 @@ struct _reent
   __FILE *__sf;			        /* file descriptors */
   struct _misc_reent *_misc;            /* strtok, multibyte states */
   char *_signal_buf;                    /* strsignal */
+
+  void *deviceData;
 };
 
 # define _REENT_INIT(var) \
@@ -485,7 +487,7 @@ struct _reent
 
 #define _REENT_CHECK_ASCTIME_BUF(var) \
   _REENT_CHECK(var, _asctime_buf, char *, _REENT_ASCTIME_SIZE, \
-    memset((var)->_asctime_buf, 0, _REENT_ASCTIME_SIZE))
+    __builtin_memset((var)->_asctime_buf, 0, _REENT_ASCTIME_SIZE))
 
 /* Handle the dynamically allocated rand48 structure. */
 #define _REENT_INIT_RAND48(var) do { \
@@ -667,6 +669,8 @@ struct _reent
 
   /* signal info */
   void (**_sig_func)(int);
+
+  void *deviceData;
 };
 
 #define _REENT_INIT(var) \
@@ -789,7 +793,7 @@ struct _reent
 #define _REENT_STDERR(_ptr)	((_ptr)->_stderr)
 
 #define _REENT_INIT_PTR(var) \
-  { memset((var), 0, sizeof(*(var))); \
+  { __builtin_memset((var), 0, sizeof(*(var))); \
     _REENT_INIT_PTR_ZEROED(var); \
   }
 

@@ -8,6 +8,28 @@
 #define MALLOC_ALIGNMENT 16
 #endif
 
+#ifdef __DEVKITARM__
+#define __DYNAMIC_REENT__
+#define MALLOC_ALIGNMENT_THRESHOLD 32
+#endif
+
+#ifdef __DEVKITA64__
+#define MALLOC_ALIGNMENT 16
+#define MALLOC_ALIGNMENT_THRESHOLD 32
+#define __DYNAMIC_REENT__
+#endif
+
+#ifdef __DEVKITPPC__
+#define MALLOC_ALIGNMENT_THRESHOLD 64
+#define __BUFSIZ__ 32768
+#define __DYNAMIC_REENT__
+#endif
+
+#ifdef __DEVKITPRO__
+#define _READ_WRITE_RETURN_TYPE _ssize_t
+#define _READ_WRITE_BUFSIZE_TYPE size_t
+#endif
+
 #ifdef __AMDGCN__
 #define __DYNAMIC_REENT__
 #endif

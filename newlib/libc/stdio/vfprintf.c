@@ -108,6 +108,8 @@ Supporting OS subroutines required: <<close>>, <<fstat>>, <<isatty>>,
 <<lseek>>, <<read>>, <<sbrk>>, <<write>>.
 */
 
+#pragma GCC optimize ("Os")
+
 #if defined(LIBC_SCCS) && !defined(lint)
 /*static char *sccsid = "from: @(#)vfprintf.c	5.50 (Berkeley) 12/16/92";*/
 static char *rcsid = "$Id$";
@@ -548,12 +550,19 @@ _VFPRINTF_R (struct _reent *data,
 #endif
 
 	/* Macros to support positional arguments */
+
+#if _ARCH_PPC
+#define __VALIST_PTR(arg) ((va_list *)(arg))
+#else
+#define __VALIST_PTR(arg) (&(arg))
+#endif
+
 #ifndef _NO_POS_ARGS
 # define GET_ARG(n, ap, type)						\
 	(is_pos_arg							\
 	 ? (n < numargs							\
 	    ? args[n].val_##type					\
-	    : get_arg (data, n, fmt_anchor, &ap, &numargs, args,	\
+	    : get_arg (data, n, fmt_anchor, __VALIST_PTR(ap), &numargs, args,	\
 		       arg_type, &saved_fmt)->val_##type)		\
 	 : (arg_index++ < numargs					\
 	    ? args[n].val_##type					\
@@ -1188,7 +1197,7 @@ reswitch:	switch (ch) {
 string:
 #endif
 			sign = '\0';
-#ifndef __OPTIMIZE_SIZE__
+//#ifndef __OPTIMIZE_SIZE__
 			/* Behavior is undefined if the user passed a
 			   NULL string when precision is not 0.
 			   However, if we are not optimizing for size,
@@ -1198,7 +1207,7 @@ string:
 				size = ((unsigned) prec > 6U) ? 6 : prec;
 			}
 			else
-#endif /* __OPTIMIZE_SIZE__ */
+//#endif /* __OPTIMIZE_SIZE__ */
 #ifdef _MB_CAPABLE
 			if (ch == 'S' || (flags & LONGINT)) {
 				mbstate_t ps;

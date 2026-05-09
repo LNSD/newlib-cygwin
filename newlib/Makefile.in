@@ -628,6 +628,7 @@ check_PROGRAMS =
 @HAVE_LIBC_SYS_W65_DIR_TRUE@am__append_63 = libc/sys/w65/syscalls.c libc/sys/w65/trap.c
 @HAVE_LIBC_SYS_Z8KSIM_DIR_TRUE@am__append_64 = libc/sys/z8ksim/glue.c
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@am__append_65 = \
+@HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/access.c \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/memchr-stub.c \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/memchr.S \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/memcmp-stub.c \
@@ -725,7 +726,7 @@ check_PROGRAMS =
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/memcpy-stub.c \
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/memcpy.S \
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/strlen-stub.c \
-@HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/strlen.S
+@HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/sync_synchronize.c
 
 @HAVE_LIBC_MACHINE_BFIN_TRUE@am__append_70 = libc/machine/bfin/setjmp.S libc/machine/bfin/longjmp.S
 @HAVE_LIBC_MACHINE_CR16_TRUE@am__append_71 = libc/machine/cr16/setjmp.S libc/machine/cr16/getenv.c
@@ -824,7 +825,9 @@ check_PROGRAMS =
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/misc.c libc/machine/nvptx/clock.c
 
 @HAVE_LIBC_MACHINE_OR1K_TRUE@am__append_109 = libc/machine/or1k/setjmp.S
-@HAVE_LIBC_MACHINE_POWERPC_TRUE@am__append_110 = libc/machine/powerpc/setjmp.S
+@HAVE_LIBC_MACHINE_POWERPC_TRUE@am__append_110 = libc/machine/powerpc/setjmp.S \
+@HAVE_LIBC_MACHINE_POWERPC_TRUE@                  libc/machine/powerpc/access.c
+
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@am__append_111 = \
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@	libc/machine/powerpc/vfprintf.c \
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@	libc/machine/powerpc/vfscanf.c \
@@ -1906,7 +1909,8 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_SYS_W65_DIR_TRUE@am__objects_74 = libc/sys/w65/libc_a-syscalls.$(OBJEXT) \
 @HAVE_LIBC_SYS_W65_DIR_TRUE@	libc/sys/w65/libc_a-trap.$(OBJEXT)
 @HAVE_LIBC_SYS_Z8KSIM_DIR_TRUE@am__objects_75 = libc/sys/z8ksim/libc_a-glue.$(OBJEXT)
-@HAVE_LIBC_MACHINE_AARCH64_TRUE@am__objects_76 = libc/machine/aarch64/libc_a-memchr-stub.$(OBJEXT) \
+@HAVE_LIBC_MACHINE_AARCH64_TRUE@am__objects_76 = libc/machine/aarch64/libc_a-access.$(OBJEXT) \
+@HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/libc_a-memchr-stub.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/libc_a-memchr.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/libc_a-memcmp-stub.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_AARCH64_TRUE@	libc/machine/aarch64/libc_a-memcmp.$(OBJEXT) \
@@ -2001,7 +2005,7 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/libc_a-memcpy-stub.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/libc_a-memcpy.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/libc_a-strlen-stub.$(OBJEXT) \
-@HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/libc_a-strlen.$(OBJEXT)
+@HAVE_LIBC_MACHINE_ARM_TRUE@	libc/machine/arm/libc_a-sync_synchronize.$(OBJEXT)
 @HAVE_LIBC_MACHINE_BFIN_TRUE@am__objects_81 = libc/machine/bfin/libc_a-setjmp.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_BFIN_TRUE@	libc/machine/bfin/libc_a-longjmp.$(OBJEXT)
 @HAVE_LIBC_MACHINE_CR16_TRUE@am__objects_82 = libc/machine/cr16/libc_a-setjmp.$(OBJEXT) \
@@ -2151,7 +2155,8 @@ am__objects_51 = libc/ssp/libc_a-chk_fail.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-misc.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_NVPTX_TRUE@	libc/machine/nvptx/libc_a-clock.$(OBJEXT)
 @HAVE_LIBC_MACHINE_OR1K_TRUE@am__objects_119 = libc/machine/or1k/libc_a-setjmp.$(OBJEXT)
-@HAVE_LIBC_MACHINE_POWERPC_TRUE@am__objects_120 = libc/machine/powerpc/libc_a-setjmp.$(OBJEXT)
+@HAVE_LIBC_MACHINE_POWERPC_TRUE@am__objects_120 = libc/machine/powerpc/libc_a-setjmp.$(OBJEXT) \
+@HAVE_LIBC_MACHINE_POWERPC_TRUE@	libc/machine/powerpc/libc_a-access.$(OBJEXT)
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@am__objects_121 = libc/machine/powerpc/libc_a-vfprintf.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@	libc/machine/powerpc/libc_a-vfscanf.$(OBJEXT) \
 @HAVE_LIBC_MACHINE_POWERPC_TRUE@@HAVE_POWERPC_ALTIVEC_TRUE@	libc/machine/powerpc/libc_a-vec_malloc.$(OBJEXT) \
@@ -2463,6 +2468,7 @@ am_libc_a_OBJECTS = $(am__objects_1) \
 	libc/stdlib/libc_a-strtol.$(OBJEXT) \
 	libc/stdlib/libc_a-strtoul.$(OBJEXT) \
 	libc/stdlib/libc_a-strtoumax.$(OBJEXT) \
+	libc/stdlib/libc_a-threads.$(OBJEXT) \
 	libc/stdlib/libc_a-utoa.$(OBJEXT) \
 	libc/stdlib/libc_a-wcstod.$(OBJEXT) \
 	libc/stdlib/libc_a-wcstoimax.$(OBJEXT) \
@@ -4158,7 +4164,7 @@ libc_a_SOURCES = $(am__append_5) libc/stdlib/__adjust.c \
 	libc/stdlib/sb_charsets.c libc/stdlib/strtod.c \
 	libc/stdlib/strtoimax.c libc/stdlib/strtol.c \
 	libc/stdlib/strtoul.c libc/stdlib/strtoumax.c \
-	libc/stdlib/utoa.c libc/stdlib/wcstod.c \
+	libc/stdlib/threads.c libc/stdlib/utoa.c libc/stdlib/wcstod.c \
 	libc/stdlib/wcstoimax.c libc/stdlib/wcstol.c \
 	libc/stdlib/wcstoul.c libc/stdlib/wcstoumax.c \
 	libc/stdlib/wcstombs.c libc/stdlib/wcstombs_r.c \
@@ -5633,6 +5639,8 @@ libc/stdlib/libc_a-strtol.$(OBJEXT): libc/stdlib/$(am__dirstamp) \
 libc/stdlib/libc_a-strtoul.$(OBJEXT): libc/stdlib/$(am__dirstamp) \
 	libc/stdlib/$(DEPDIR)/$(am__dirstamp)
 libc/stdlib/libc_a-strtoumax.$(OBJEXT): libc/stdlib/$(am__dirstamp) \
+	libc/stdlib/$(DEPDIR)/$(am__dirstamp)
+libc/stdlib/libc_a-threads.$(OBJEXT): libc/stdlib/$(am__dirstamp) \
 	libc/stdlib/$(DEPDIR)/$(am__dirstamp)
 libc/stdlib/libc_a-utoa.$(OBJEXT): libc/stdlib/$(am__dirstamp) \
 	libc/stdlib/$(DEPDIR)/$(am__dirstamp)
@@ -8099,6 +8107,9 @@ libc/machine/aarch64/$(am__dirstamp):
 libc/machine/aarch64/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) libc/machine/aarch64/$(DEPDIR)
 	@: > libc/machine/aarch64/$(DEPDIR)/$(am__dirstamp)
+libc/machine/aarch64/libc_a-access.$(OBJEXT):  \
+	libc/machine/aarch64/$(am__dirstamp) \
+	libc/machine/aarch64/$(DEPDIR)/$(am__dirstamp)
 libc/machine/aarch64/libc_a-memchr-stub.$(OBJEXT):  \
 	libc/machine/aarch64/$(am__dirstamp) \
 	libc/machine/aarch64/$(DEPDIR)/$(am__dirstamp)
@@ -8408,7 +8419,7 @@ libc/machine/arm/libc_a-memcpy.$(OBJEXT):  \
 libc/machine/arm/libc_a-strlen-stub.$(OBJEXT):  \
 	libc/machine/arm/$(am__dirstamp) \
 	libc/machine/arm/$(DEPDIR)/$(am__dirstamp)
-libc/machine/arm/libc_a-strlen.$(OBJEXT):  \
+libc/machine/arm/libc_a-sync_synchronize.$(OBJEXT):  \
 	libc/machine/arm/$(am__dirstamp) \
 	libc/machine/arm/$(DEPDIR)/$(am__dirstamp)
 libc/machine/bfin/$(am__dirstamp):
@@ -9081,6 +9092,9 @@ libc/machine/powerpc/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) libc/machine/powerpc/$(DEPDIR)
 	@: > libc/machine/powerpc/$(DEPDIR)/$(am__dirstamp)
 libc/machine/powerpc/libc_a-setjmp.$(OBJEXT):  \
+	libc/machine/powerpc/$(am__dirstamp) \
+	libc/machine/powerpc/$(DEPDIR)/$(am__dirstamp)
+libc/machine/powerpc/libc_a-access.$(OBJEXT):  \
 	libc/machine/powerpc/$(am__dirstamp) \
 	libc/machine/powerpc/$(DEPDIR)/$(am__dirstamp)
 libc/machine/powerpc/libc_a-vfprintf.$(OBJEXT):  \
@@ -12890,6 +12904,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/locale/$(DEPDIR)/libc_a-nl_langinfo.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/locale/$(DEPDIR)/libc_a-timelocal.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/locale/$(DEPDIR)/libc_a-uselocale.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/aarch64/$(DEPDIR)/libc_a-access.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/aarch64/$(DEPDIR)/libc_a-memchr-stub.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/aarch64/$(DEPDIR)/libc_a-memchr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/aarch64/$(DEPDIR)/libc_a-memcmp-stub.Po@am__quote@
@@ -12985,7 +13000,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/arm/$(DEPDIR)/libc_a-strcmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/arm/$(DEPDIR)/libc_a-strcpy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/arm/$(DEPDIR)/libc_a-strlen-stub.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/arm/$(DEPDIR)/libc_a-strlen.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/bfin/$(DEPDIR)/libc_a-longjmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/bfin/$(DEPDIR)/libc_a-setjmp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/cr16/$(DEPDIR)/libc_a-getenv.Po@am__quote@
@@ -13134,6 +13149,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-reallocr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/nvptx/$(DEPDIR)/libc_a-write.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/or1k/$(DEPDIR)/libc_a-setjmp.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/machine/powerpc/$(DEPDIR)/libc_a-access.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/powerpc/$(DEPDIR)/libc_a-atosfix16.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/powerpc/$(DEPDIR)/libc_a-atosfix32.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/machine/powerpc/$(DEPDIR)/libc_a-atosfix64.Po@am__quote@
@@ -13780,6 +13796,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-strtoull_r.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-strtoumax.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-system.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-threads.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-utoa.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-valloc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@libc/stdlib/$(DEPDIR)/libc_a-vallocr.Po@am__quote@
@@ -17608,20 +17625,6 @@ libc/machine/arm/libc_a-memcpy.obj: libc/machine/arm/memcpy.S
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='libc/machine/arm/memcpy.S' object='libc/machine/arm/libc_a-memcpy.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -c -o libc/machine/arm/libc_a-memcpy.obj `if test -f 'libc/machine/arm/memcpy.S'; then $(CYGPATH_W) 'libc/machine/arm/memcpy.S'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/memcpy.S'; fi`
-
-libc/machine/arm/libc_a-strlen.o: libc/machine/arm/strlen.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -MT libc/machine/arm/libc_a-strlen.o -MD -MP -MF libc/machine/arm/$(DEPDIR)/libc_a-strlen.Tpo -c -o libc/machine/arm/libc_a-strlen.o `test -f 'libc/machine/arm/strlen.S' || echo '$(srcdir)/'`libc/machine/arm/strlen.S
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) libc/machine/arm/$(DEPDIR)/libc_a-strlen.Tpo libc/machine/arm/$(DEPDIR)/libc_a-strlen.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='libc/machine/arm/strlen.S' object='libc/machine/arm/libc_a-strlen.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -c -o libc/machine/arm/libc_a-strlen.o `test -f 'libc/machine/arm/strlen.S' || echo '$(srcdir)/'`libc/machine/arm/strlen.S
-
-libc/machine/arm/libc_a-strlen.obj: libc/machine/arm/strlen.S
-@am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -MT libc/machine/arm/libc_a-strlen.obj -MD -MP -MF libc/machine/arm/$(DEPDIR)/libc_a-strlen.Tpo -c -o libc/machine/arm/libc_a-strlen.obj `if test -f 'libc/machine/arm/strlen.S'; then $(CYGPATH_W) 'libc/machine/arm/strlen.S'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/strlen.S'; fi`
-@am__fastdepCCAS_TRUE@	$(AM_V_at)$(am__mv) libc/machine/arm/$(DEPDIR)/libc_a-strlen.Tpo libc/machine/arm/$(DEPDIR)/libc_a-strlen.Po
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS)source='libc/machine/arm/strlen.S' object='libc/machine/arm/libc_a-strlen.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCCAS_FALSE@	DEPDIR=$(DEPDIR) $(CCASDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCCAS_FALSE@	$(AM_V_CPPAS@am__nodep@)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -c -o libc/machine/arm/libc_a-strlen.obj `if test -f 'libc/machine/arm/strlen.S'; then $(CYGPATH_W) 'libc/machine/arm/strlen.S'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/strlen.S'; fi`
 
 libc/machine/bfin/libc_a-setjmp.o: libc/machine/bfin/setjmp.S
 @am__fastdepCCAS_TRUE@	$(AM_V_CPPAS)$(CCAS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CCASFLAGS) $(CCASFLAGS) -MT libc/machine/bfin/libc_a-setjmp.o -MD -MP -MF libc/machine/bfin/$(DEPDIR)/libc_a-setjmp.Tpo -c -o libc/machine/bfin/libc_a-setjmp.o `test -f 'libc/machine/bfin/setjmp.S' || echo '$(srcdir)/'`libc/machine/bfin/setjmp.S
@@ -21614,6 +21617,20 @@ libc/stdlib/libc_a-strtoumax.obj: libc/stdlib/strtoumax.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/stdlib/strtoumax.c' object='libc/stdlib/libc_a-strtoumax.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/stdlib/libc_a-strtoumax.obj `if test -f 'libc/stdlib/strtoumax.c'; then $(CYGPATH_W) 'libc/stdlib/strtoumax.c'; else $(CYGPATH_W) '$(srcdir)/libc/stdlib/strtoumax.c'; fi`
+
+libc/stdlib/libc_a-threads.o: libc/stdlib/threads.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/stdlib/libc_a-threads.o -MD -MP -MF libc/stdlib/$(DEPDIR)/libc_a-threads.Tpo -c -o libc/stdlib/libc_a-threads.o `test -f 'libc/stdlib/threads.c' || echo '$(srcdir)/'`libc/stdlib/threads.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/stdlib/$(DEPDIR)/libc_a-threads.Tpo libc/stdlib/$(DEPDIR)/libc_a-threads.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/stdlib/threads.c' object='libc/stdlib/libc_a-threads.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/stdlib/libc_a-threads.o `test -f 'libc/stdlib/threads.c' || echo '$(srcdir)/'`libc/stdlib/threads.c
+
+libc/stdlib/libc_a-threads.obj: libc/stdlib/threads.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/stdlib/libc_a-threads.obj -MD -MP -MF libc/stdlib/$(DEPDIR)/libc_a-threads.Tpo -c -o libc/stdlib/libc_a-threads.obj `if test -f 'libc/stdlib/threads.c'; then $(CYGPATH_W) 'libc/stdlib/threads.c'; else $(CYGPATH_W) '$(srcdir)/libc/stdlib/threads.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/stdlib/$(DEPDIR)/libc_a-threads.Tpo libc/stdlib/$(DEPDIR)/libc_a-threads.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/stdlib/threads.c' object='libc/stdlib/libc_a-threads.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/stdlib/libc_a-threads.obj `if test -f 'libc/stdlib/threads.c'; then $(CYGPATH_W) 'libc/stdlib/threads.c'; else $(CYGPATH_W) '$(srcdir)/libc/stdlib/threads.c'; fi`
 
 libc/stdlib/libc_a-utoa.o: libc/stdlib/utoa.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/stdlib/libc_a-utoa.o -MD -MP -MF libc/stdlib/$(DEPDIR)/libc_a-utoa.Tpo -c -o libc/stdlib/libc_a-utoa.o `test -f 'libc/stdlib/utoa.c' || echo '$(srcdir)/'`libc/stdlib/utoa.c
@@ -33347,6 +33364,20 @@ libc/sys/z8ksim/libc_a-glue.obj: libc/sys/z8ksim/glue.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/sys/z8ksim/libc_a-glue.obj `if test -f 'libc/sys/z8ksim/glue.c'; then $(CYGPATH_W) 'libc/sys/z8ksim/glue.c'; else $(CYGPATH_W) '$(srcdir)/libc/sys/z8ksim/glue.c'; fi`
 
+libc/machine/aarch64/libc_a-access.o: libc/machine/aarch64/access.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/aarch64/libc_a-access.o -MD -MP -MF libc/machine/aarch64/$(DEPDIR)/libc_a-access.Tpo -c -o libc/machine/aarch64/libc_a-access.o `test -f 'libc/machine/aarch64/access.c' || echo '$(srcdir)/'`libc/machine/aarch64/access.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/aarch64/$(DEPDIR)/libc_a-access.Tpo libc/machine/aarch64/$(DEPDIR)/libc_a-access.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/aarch64/access.c' object='libc/machine/aarch64/libc_a-access.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/aarch64/libc_a-access.o `test -f 'libc/machine/aarch64/access.c' || echo '$(srcdir)/'`libc/machine/aarch64/access.c
+
+libc/machine/aarch64/libc_a-access.obj: libc/machine/aarch64/access.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/aarch64/libc_a-access.obj -MD -MP -MF libc/machine/aarch64/$(DEPDIR)/libc_a-access.Tpo -c -o libc/machine/aarch64/libc_a-access.obj `if test -f 'libc/machine/aarch64/access.c'; then $(CYGPATH_W) 'libc/machine/aarch64/access.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/aarch64/access.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/aarch64/$(DEPDIR)/libc_a-access.Tpo libc/machine/aarch64/$(DEPDIR)/libc_a-access.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/aarch64/access.c' object='libc/machine/aarch64/libc_a-access.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/aarch64/libc_a-access.obj `if test -f 'libc/machine/aarch64/access.c'; then $(CYGPATH_W) 'libc/machine/aarch64/access.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/aarch64/access.c'; fi`
+
 libc/machine/aarch64/libc_a-memchr-stub.o: libc/machine/aarch64/memchr-stub.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/aarch64/libc_a-memchr-stub.o -MD -MP -MF libc/machine/aarch64/$(DEPDIR)/libc_a-memchr-stub.Tpo -c -o libc/machine/aarch64/libc_a-memchr-stub.o `test -f 'libc/machine/aarch64/memchr-stub.c' || echo '$(srcdir)/'`libc/machine/aarch64/memchr-stub.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/aarch64/$(DEPDIR)/libc_a-memchr-stub.Tpo libc/machine/aarch64/$(DEPDIR)/libc_a-memchr-stub.Po
@@ -33921,6 +33952,20 @@ libc/machine/arm/libc_a-strlen-stub.obj: libc/machine/arm/strlen-stub.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/arm/libc_a-strlen-stub.obj `if test -f 'libc/machine/arm/strlen-stub.c'; then $(CYGPATH_W) 'libc/machine/arm/strlen-stub.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/strlen-stub.c'; fi`
 
+libc/machine/arm/libc_a-sync_synchronize.o: libc/machine/arm/sync_synchronize.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/arm/libc_a-sync_synchronize.o -MD -MP -MF libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Tpo -c -o libc/machine/arm/libc_a-sync_synchronize.o `test -f 'libc/machine/arm/sync_synchronize.c' || echo '$(srcdir)/'`libc/machine/arm/sync_synchronize.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Tpo libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/arm/sync_synchronize.c' object='libc/machine/arm/libc_a-sync_synchronize.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/arm/libc_a-sync_synchronize.o `test -f 'libc/machine/arm/sync_synchronize.c' || echo '$(srcdir)/'`libc/machine/arm/sync_synchronize.c
+
+libc/machine/arm/libc_a-sync_synchronize.obj: libc/machine/arm/sync_synchronize.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/arm/libc_a-sync_synchronize.obj -MD -MP -MF libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Tpo -c -o libc/machine/arm/libc_a-sync_synchronize.obj `if test -f 'libc/machine/arm/sync_synchronize.c'; then $(CYGPATH_W) 'libc/machine/arm/sync_synchronize.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/sync_synchronize.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Tpo libc/machine/arm/$(DEPDIR)/libc_a-sync_synchronize.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/arm/sync_synchronize.c' object='libc/machine/arm/libc_a-sync_synchronize.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/arm/libc_a-sync_synchronize.obj `if test -f 'libc/machine/arm/sync_synchronize.c'; then $(CYGPATH_W) 'libc/machine/arm/sync_synchronize.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/arm/sync_synchronize.c'; fi`
+
 libc/machine/cr16/libc_a-getenv.o: libc/machine/cr16/getenv.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/cr16/libc_a-getenv.o -MD -MP -MF libc/machine/cr16/$(DEPDIR)/libc_a-getenv.Tpo -c -o libc/machine/cr16/libc_a-getenv.o `test -f 'libc/machine/cr16/getenv.c' || echo '$(srcdir)/'`libc/machine/cr16/getenv.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/cr16/$(DEPDIR)/libc_a-getenv.Tpo libc/machine/cr16/$(DEPDIR)/libc_a-getenv.Po
@@ -34466,6 +34511,20 @@ libc/machine/nvptx/libc_a-clock.obj: libc/machine/nvptx/clock.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/nvptx/clock.c' object='libc/machine/nvptx/libc_a-clock.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/nvptx/libc_a-clock.obj `if test -f 'libc/machine/nvptx/clock.c'; then $(CYGPATH_W) 'libc/machine/nvptx/clock.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/nvptx/clock.c'; fi`
+
+libc/machine/powerpc/libc_a-access.o: libc/machine/powerpc/access.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/powerpc/libc_a-access.o -MD -MP -MF libc/machine/powerpc/$(DEPDIR)/libc_a-access.Tpo -c -o libc/machine/powerpc/libc_a-access.o `test -f 'libc/machine/powerpc/access.c' || echo '$(srcdir)/'`libc/machine/powerpc/access.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/powerpc/$(DEPDIR)/libc_a-access.Tpo libc/machine/powerpc/$(DEPDIR)/libc_a-access.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/powerpc/access.c' object='libc/machine/powerpc/libc_a-access.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/powerpc/libc_a-access.o `test -f 'libc/machine/powerpc/access.c' || echo '$(srcdir)/'`libc/machine/powerpc/access.c
+
+libc/machine/powerpc/libc_a-access.obj: libc/machine/powerpc/access.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/powerpc/libc_a-access.obj -MD -MP -MF libc/machine/powerpc/$(DEPDIR)/libc_a-access.Tpo -c -o libc/machine/powerpc/libc_a-access.obj `if test -f 'libc/machine/powerpc/access.c'; then $(CYGPATH_W) 'libc/machine/powerpc/access.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/powerpc/access.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) libc/machine/powerpc/$(DEPDIR)/libc_a-access.Tpo libc/machine/powerpc/$(DEPDIR)/libc_a-access.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='libc/machine/powerpc/access.c' object='libc/machine/powerpc/libc_a-access.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -c -o libc/machine/powerpc/libc_a-access.obj `if test -f 'libc/machine/powerpc/access.c'; then $(CYGPATH_W) 'libc/machine/powerpc/access.c'; else $(CYGPATH_W) '$(srcdir)/libc/machine/powerpc/access.c'; fi`
 
 libc/machine/powerpc/libc_a-vfprintf.o: libc/machine/powerpc/vfprintf.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libc_a_CPPFLAGS) $(CPPFLAGS) $(libc_a_CFLAGS) $(CFLAGS) -MT libc/machine/powerpc/libc_a-vfprintf.o -MD -MP -MF libc/machine/powerpc/$(DEPDIR)/libc_a-vfprintf.Tpo -c -o libc/machine/powerpc/libc_a-vfprintf.o `test -f 'libc/machine/powerpc/vfprintf.c' || echo '$(srcdir)/'`libc/machine/powerpc/vfprintf.c
